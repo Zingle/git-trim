@@ -1,0 +1,18 @@
+{
+  "name": "@zingle/git-trim",
+  "version": "0.0.1-alpha1",
+  "description": "git command to trim merged branches",
+  "bin": {
+    "git-trim": "git-trim"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Zingle/git-trim.git"
+  },
+  "author": "Richard Remer <reanjr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zingle/git-trim/issues"
+  },
+  "homepage": "https://github.com/Zingle/git-trim#readme"
+}

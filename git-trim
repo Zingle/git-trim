@@ -1,0 +1,24 @@
+#!/bin/bash -e
+
+if test $# -eq 0; then
+    echo Missing required branch name >&2
+    exit 1
+elif test $# -gt 1; then
+    echo Only one branch may be specified >&2
+    exit 2
+elif ! git rev-parse HEAD &>/dev/null; then
+    echo Cannot find HEAD >&2
+    exit 10
+elif test $(git status --porcelain 2>/dev/null | wc -l) -gt 0; then
+    echo Working tree is not clean >&2
+    exit 11
+fi
+
+declare -i trimmed=0
+
+git checkout "$1"
+git branch | while read branch; do
+    git branch -d $branch &>/dev/null || trimmed=$((trimmed+1))
+done
+
+echo $trimmed branches trimmed
