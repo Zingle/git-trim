@@ -17,8 +17,8 @@ fi
 declare -i trimmed=0
 
 git checkout "$1"
-git branch | while read branch; do
-    git branch -d $branch &>/dev/null || trimmed=$((trimmed+1))
-done
+trimmed=$(git branch | while read branch; do
+    git branch -d $branch &>/dev/null && echo . || :
+done | wc -l)
 
 echo $trimmed branches trimmed

@@ -1,6 +1,6 @@
 {
   "name": "@zingle/git-trim",
-  "version": "0.0.1-alpha1",
+  "version": "0.0.1-alpha2",
   "description": "git command to trim merged branches",
   "bin": {
     "git-trim": "git-trim"
